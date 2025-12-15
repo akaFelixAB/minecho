@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #define SYS_exit 60
 #define SYS_write 1
 
@@ -22,11 +20,11 @@ static inline unsigned long syscall3(unsigned long number, unsigned long arg1,
     return result;
 }
 
-size_t strlen(const char* str) {
+unsigned long strlen(const char* str) {
     char const* s = str;
     while (*str)
         str++;
-    size_t len = str - s;
+    unsigned long len = str - s;
     return len;
 }
 
