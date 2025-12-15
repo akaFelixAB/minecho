@@ -4,22 +4,22 @@
 #define SYS_write 1
 
 static inline unsigned long syscall1(unsigned long number, unsigned long arg1) {
-    unsigned long rezult;
+    unsigned long result;
     asm volatile("syscall\n"
-                 : "=a"(rezult)
+                 : "=a"(result)
                  : "a"(number), "D"(arg1)
                  : "%rcx", "%r11", "memory");
-    return rezult;
+    return result;
 }
 
 static inline unsigned long syscall3(unsigned long number, unsigned long arg1,
                                      unsigned long arg2, unsigned long arg3) {
-    unsigned long rezult;
+    unsigned long result;
     asm volatile("syscall\n"
-                 : "=a"(rezult)
+                 : "=a"(result)
                  : "a"(number), "D"(arg1), "S"(arg2), "d"(arg3)
                  : "%rcx", "%r11", "memory");
-    return rezult;
+    return result;
 }
 
 size_t strlen(const char* str) {
